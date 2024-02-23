@@ -26,14 +26,14 @@ const PORT = process.env.PORT || 8000;
 // // $ npm i morgan
 // const morgan = require("morgan");
 // // console.log(morgan);
-// // app.use(morgan("combined"));
 
 // //?  LOG Kayit Tutma
-// const fs = require("node:fs"); // file system
+// const fs = require("node:fs"); // file system module // not necesarry npm i came with together node.js
 
 // const now = new Date();
 // const today = now.toISOString().split("T")[0];
 
+//? Write LOG to file:
 // app.use(
 //   morgan("combined", {
 //     stream: fs.createWriteStream(`./logs/${today}.log`, { flags: "a+" }),
