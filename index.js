@@ -22,23 +22,23 @@ require("dotenv").config();
 const PORT = process.env.PORT || 8000;
 
 /* -------------------------------------------------------------------------- */
-// //? LOG
-// // $ npm i morgan
-// const morgan = require("morgan");
-// // console.log(morgan);
+//? LOG
+// $ npm i morgan
+const morgan = require("morgan");
+// console.log(morgan);
 
-// //?  LOG Kayit Tutma
-// const fs = require("node:fs"); // file system module // not necesarry npm i came with together node.js
+//?  LOG Kayit Tutma
+const fs = require("node:fs"); // file system module // not necesarry npm i came with together node.js
 
-// const now = new Date();
-// const today = now.toISOString().split("T")[0];
+const now = new Date();
+const today = now.toISOString().split("T")[0];
 
-//? Write LOG to file:
-// app.use(
-//   morgan("combined", {
-//     stream: fs.createWriteStream(`./logs/${today}.log`, { flags: "a+" }),
-//   })
-// );
+// ? Write LOG to file:
+app.use(
+  morgan("combined", {
+    stream: fs.createWriteStream(`./logs/${today}.log`, { flags: "a+" }),
+  })
+);
 
 /* -------------------------------------------------------------------------- */
 //? swagger-ui-express
