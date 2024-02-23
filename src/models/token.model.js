@@ -4,7 +4,6 @@
 ----------------------------------------------------------------------------- */
 const { mongoose } = require("../configs/dbConnection");
 /* -------------------------------------------------------------------------- */
-// const passwordEncrypt = require("../helpers/passwordEncrypt");
 
 const TokenSchema = new mongoose.Schema(
   {

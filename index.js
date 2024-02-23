@@ -24,7 +24,6 @@ const PORT = process.env.PORT || 8000;
 /* -------------------------------------------------------------------------- */
 // //? LOG
 // // $ npm i morgan
-// // morgan bir middleware dir
 // const morgan = require("morgan");
 // // console.log(morgan);
 // // app.use(morgan("combined"));

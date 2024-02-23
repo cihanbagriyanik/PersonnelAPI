@@ -16,7 +16,7 @@ module.exports = {
     res.status(200).send({
       error: false,
       detail: await res.getModelListDetails(Token),
-      data, // data: data
+      data,
     });
   },
 
@@ -40,19 +40,6 @@ module.exports = {
       data,
     });
   },
-
-  /*
-  // /:id -> PUT / PATCH
-  update: async (req, res) => {
-    const data = await Token.updateOne({ _id: req.params.id }, req.body);
-
-    res.status(202).send({
-      error: false,
-      data,
-      newData: await Token.findOne({ _id: req.params.id }),
-    });
-  },
-*/
 
   // /:id -> DELETE
   delete: async (req, res) => {

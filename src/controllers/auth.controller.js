@@ -23,12 +23,10 @@ module.exports = {
       if (user && user.password == passwordEncrypt(password)) {
         if (user.isActive) {
           //? Token olustur
-          // Once kullanici icin daha once token olusturulmus mu?
           let tokenData = await Token.findOne({ userId: user._id });
 
-          // Yoksa token olustur
           if (!tokenData) {
-            let tokenKey = passwordEncrypt(user._id + Date.now()); //uniq bir deger olustur
+            let tokenKey = passwordEncrypt(user._id + Date.now());
 
             tokenData = await Token.create({
               userId: user._id,
