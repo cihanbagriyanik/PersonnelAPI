@@ -22,24 +22,24 @@ require("dotenv").config();
 const PORT = process.env.PORT || 8000;
 
 /* -------------------------------------------------------------------------- */
-//? LOG
-// $ npm i morgan
-// morgan bir middleware dir
-const morgan = require("morgan");
-// console.log(morgan);
-// app.use(morgan("combined"));
+// //? LOG
+// // $ npm i morgan
+// // morgan bir middleware dir
+// const morgan = require("morgan");
+// // console.log(morgan);
+// // app.use(morgan("combined"));
 
-//?  LOG Kayit Tutma
-const fs = require("node:fs"); // file system
+// //?  LOG Kayit Tutma
+// const fs = require("node:fs"); // file system
 
-const now = new Date();
-const today = now.toISOString().split("T")[0];
+// const now = new Date();
+// const today = now.toISOString().split("T")[0];
 
-app.use(
-  morgan("combined", {
-    stream: fs.createWriteStream(`./logs/${today}.log`, { flags: "a+" }),
-  })
-);
+// app.use(
+//   morgan("combined", {
+//     stream: fs.createWriteStream(`./logs/${today}.log`, { flags: "a+" }),
+//   })
+// );
 
 /* -------------------------------------------------------------------------- */
 //? swagger-ui-express
