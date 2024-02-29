@@ -86,8 +86,6 @@ app.use("/auth", require("./src/routes/auth.router"));
 app.use("/documents", require("./src/routes/document"));
 
 /* -------------------------------------------------------------------------- */
-
-/* -------------------------------------------------------------------------- */
 //? errorHandler:
 app.use(require("./src/middlewares/errorHandler"));
 
