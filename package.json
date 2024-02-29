@@ -1,6 +1,7 @@
 {
-  "name": "personnelapi",
+  "name": "personnel-api",
   "version": "1.0.0",
+  "title": "Personnel Management API Service",
   "description": "Personnel Management API Service",
   "main": "index.js",
   "scripts": {
@@ -8,7 +9,7 @@
     "debugmode": "DEBUG=express:router nodemon"
   },
   "keywords": [],
-  "author": "",
+  "author": "Cihan Bagriyanik",
   "license": "ISC",
   "dependencies": {
     "cookie-session": "^2.0.0",

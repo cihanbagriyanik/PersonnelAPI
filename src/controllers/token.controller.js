@@ -11,6 +11,7 @@ const Token = require("../models/token.model");
 module.exports = {
   // GET:
   list: async (req, res) => {
+    // #swagger.ignore = true
     const data = await res.getModelList(Token);
 
     res.status(200).send({
@@ -23,6 +24,7 @@ module.exports = {
   // CRUD Processes:
   // POST
   create: async (req, res) => {
+    // #swagger.ignore = true
     const data = await Token.create(req.body);
 
     res.status(201).send({
@@ -33,6 +35,7 @@ module.exports = {
 
   // /:id -> GET
   read: async (req, res) => {
+    // #swagger.ignore = true
     const data = await Token.findOne({ _id: req.params.id });
 
     res.status(200).send({
@@ -43,6 +46,7 @@ module.exports = {
 
   // /:id -> DELETE
   delete: async (req, res) => {
+    // #swagger.ignore = true
     const data = await Token.deleteOne({ _id: req.params.id });
 
     res.status(data.deletedCount ? 204 : 404).send({

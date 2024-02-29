@@ -113,6 +113,10 @@ module.exports = {
   },
 
   personnels: async (req, res) => {
+    /*
+      #swagger.tags = ["Departments"]
+      #swagger.summary = "Get Personnel at Single Department"
+    */
     const Personnel = require("../models/personnel.model");
 
     const data = await res.getModelList(

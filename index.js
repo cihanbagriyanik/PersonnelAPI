@@ -22,61 +22,6 @@ require("dotenv").config();
 const PORT = process.env.PORT || 8000;
 
 /* -------------------------------------------------------------------------- */
-// //? LOG
-// // $ npm i morgan
-// const morgan = require("morgan");
-// // console.log(morgan);
-
-// //?  LOG Kayit Tutma
-// const fs = require("node:fs"); // file system module // not necesarry npm i came with together node.js
-
-// const now = new Date();
-// const today = now.toISOString().split("T")[0];
-
-// // ? Write LOG to file:
-// app.use(
-//   morgan("combined", {
-//     stream: fs.createWriteStream(`./logs/${today}.log`, { flags: "a+" }),
-//   })
-// );
-
-/* -------------------------------------------------------------------------- */
-//? swagger-ui-express
-//$ npm i swagger-ui-express
-
-// swaggerUi import
-const swaggerUi = require("swagger-ui-express");
-// swagger json import
-const swaggerJson = require("./swagger.json");
-
-app.use(
-  "/docs/swagger",
-  swaggerUi.serve,
-  swaggerUi.setup(swaggerJson, {
-    swaggerOptions: { persistAuthorization: true },
-  })
-);
-
-/* -------------------------------------------------------------------------- */
-//? redoc
-// $ npm i redoc-express
-
-// import
-const redoc = require("redoc-express");
-
-app.use("/docs/json", (req, res) => {
-  res.sendFile("swagger.json", { root: "." });
-});
-
-app.use(
-  "/docs/redoc",
-  redoc({
-    specUrl: "/docs/json",
-    title: "API Docs",
-  })
-);
-
-/* -------------------------------------------------------------------------- */
 //? asyncErrors to errorHandler:
 require("express-async-errors");
 
@@ -97,6 +42,9 @@ app.use(
   })
 );
 
+// morgan-logger:
+// app.use(require("./src/middlewares/logger")); //*IN Comment coz of Deployment
+
 // res.getModelList():
 app.use(require("./src/middlewares/findSearchSortPage"));
 
@@ -111,11 +59,10 @@ app.all("/", (req, res) => {
     isLogin: req.isLogin,
     api: {
       documents: {
-        swagger: "http://127.0.0.1:8000/docs/swagger",
-        redoc: "http://127.0.0.1:8000/docs/redoc",
-        json: "http://127.0.0.1:8000/docs/json",
+        swagger: "http://127.0.0.1:8000/documents/swagger",
+        redoc: "http://127.0.0.1:8000/documents/redoc",
+        json: "http://127.0.0.1:8000/documents/json",
       },
-      contact: "clarusway.com",
     },
   });
 });
@@ -134,6 +81,9 @@ app.use("/tokens", require("./src/routes/token.router"));
 
 //* /auth
 app.use("/auth", require("./src/routes/auth.router"));
+
+//*  document
+app.use("/documents", require("./src/routes/document"));
 
 /* -------------------------------------------------------------------------- */
 

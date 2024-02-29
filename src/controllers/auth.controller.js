@@ -13,6 +13,19 @@ const passwordEncrypt = require("../helpers/passwordEncrypt");
 module.exports = {
   //? LOGIN:
   login: async (req, res) => {
+    /*
+        #swagger.tags = ["Authentication"]
+        #swagger.summary = "Login"
+        #swagger.description = 'Login with username (or email) and password for get simpleToken and JWT'
+        #swagger.parameters["body"] = {
+            in: "body",
+            required: true,
+            schema: {
+                "username": "test",
+                "password": "1234",
+            }
+        }
+    */
     const { username, email, password } = req.body;
 
     if ((username || email) && password) {
@@ -57,6 +70,11 @@ module.exports = {
 
   //? LOGOUT:
   logout: async (req, res) => {
+    /*
+        #swagger.tags = ["Authentication"]
+        #swagger.summary = "SimpleToken: Logout"
+        #swagger.description = 'Delete token key.'
+    */
     const auth = req.headers?.authorization || null;
     const tokenKey = auth ? auth.split(" ")[1] : null;
     // console.log(tokenKey);

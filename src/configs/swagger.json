@@ -2,24 +2,49 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "REST API",
+    "title": "Personnel Management API Service",
     "description": "Personnel Management API Service",
-    "termsOfService": "http://www.clarusway.com",
+    "termsOfService": "www.linkedin.com/in/bagriyanik",
     "contact": {
-      "name": "Clarusway",
-      "email": "qadir@clarusway.com"
+      "name": "Cihan Bagriyanik",
+      "email": "cihanbagriyanikde@gmail.com"
     },
     "license": {
-      "name": "BSD License"
+      "name": "ISC"
     }
   },
-  "host": " 127.0.0.1:8000 ",
+  "host": "127.0.0.1:8000",
   "basePath": "/",
-  "schemes": ["http", "https"],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "securityDefinitions": {
+    "Token": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization",
+      "description": "Simple Token Authentication * Example: <b>Token ...tokenKey...</b>"
+    },
+    "Bearer": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization",
+      "description": "JWT Authentication * Example: <b>Bearer ...accessToken...</b>"
+    }
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
   "paths": {
     "/departments/": {
       "get": {
-        "tags": ["Departments"],
+        "tags": [
+          "Departments"
+        ],
         "summary": "List Departments",
         "description": "  You can send query with endpoint for search[], sort[], page and limit.  <ul> Examples:  <li>URL/?<b>search[field1]=value1&search[field2]=value2</b></li>  <li>URL/?<b>sort[field1]=1&sort[field2]=-1</b></li>  <li>URL/?<b>page=2&limit=1</b></li>  </ul>  ",
         "responses": {
@@ -29,7 +54,9 @@
         }
       },
       "post": {
-        "tags": ["Departments"],
+        "tags": [
+          "Departments"
+        ],
         "summary": "Create Department",
         "description": "",
         "parameters": [
@@ -57,7 +84,9 @@
     },
     "/departments/{id}": {
       "get": {
-        "tags": ["Departments"],
+        "tags": [
+          "Departments"
+        ],
         "summary": "Get Single Department",
         "description": "",
         "parameters": [
@@ -75,7 +104,9 @@
         }
       },
       "put": {
-        "tags": ["Departments"],
+        "tags": [
+          "Departments"
+        ],
         "summary": "Update Department",
         "description": "",
         "parameters": [
@@ -107,7 +138,9 @@
         }
       },
       "delete": {
-        "tags": ["Departments"],
+        "tags": [
+          "Departments"
+        ],
         "summary": "Delete Department",
         "description": "",
         "parameters": [
@@ -128,7 +161,9 @@
         }
       },
       "patch": {
-        "tags": ["Departments"],
+        "tags": [
+          "Departments"
+        ],
         "summary": "Update Department",
         "description": "",
         "parameters": [
@@ -162,6 +197,10 @@
     },
     "/departments/{id}/personnels": {
       "get": {
+        "tags": [
+          "Departments"
+        ],
+        "summary": "Get Personnel at Single Department",
         "description": "",
         "parameters": [
           {
@@ -180,7 +219,9 @@
     },
     "/personnels/": {
       "get": {
-        "tags": ["Personnels"],
+        "tags": [
+          "Personnels"
+        ],
         "summary": "List Personnels",
         "description": "  You can send query with endpoint for search[], sort[], page and limit.  <ul> Examples:  <li>URL/?<b>search[field1]=value1&search[field2]=value2</b></li>  <li>URL/?<b>sort[field1]=1&sort[field2]=-1</b></li>  <li>URL/?<b>page=2&limit=1</b></li>  </ul>  ",
         "responses": {
@@ -190,7 +231,9 @@
         }
       },
       "post": {
-        "tags": ["Personnels"],
+        "tags": [
+          "Personnels"
+        ],
         "summary": "Create Personnel",
         "description": "Look to <b>'Models/Personnel'</b> for parameters.",
         "parameters": [
@@ -212,7 +255,9 @@
     },
     "/personnels/{id}": {
       "get": {
-        "tags": ["Personnels"],
+        "tags": [
+          "Personnels"
+        ],
         "summary": "Get Single Personnel",
         "description": "",
         "parameters": [
@@ -230,7 +275,9 @@
         }
       },
       "put": {
-        "tags": ["Personnels"],
+        "tags": [
+          "Personnels"
+        ],
         "summary": "Update Personnel",
         "description": "Look to <b>'Models/Personnel'</b> for parameters.",
         "parameters": [
@@ -256,7 +303,9 @@
         }
       },
       "delete": {
-        "tags": ["Personnels"],
+        "tags": [
+          "Personnels"
+        ],
         "summary": "Delete Personnel",
         "description": "",
         "parameters": [
@@ -277,7 +326,9 @@
         }
       },
       "patch": {
-        "tags": ["Personnels"],
+        "tags": [
+          "Personnels"
+        ],
         "summary": "Update Personnel",
         "description": "Look to <b>'Models/Personnel'</b> for parameters.",
         "parameters": [
@@ -303,79 +354,28 @@
         }
       }
     },
-    "/tokens/": {
-      "get": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "post": {
-        "description": "",
-        "responses": {
-          "201": {
-            "description": "Created"
-          }
-        }
-      }
-    },
-    "/tokens/{id}": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "delete": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        }
-      }
-    },
     "/auth/login": {
       "post": {
-        "description": "",
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Login",
+        "description": "Login with username (or email) and password for get simpleToken and JWT",
         "parameters": [
           {
             "name": "body",
             "in": "body",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
                 "username": {
-                  "example": "any"
-                },
-                "email": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "test"
                 },
                 "password": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "1234"
                 }
               }
             }
@@ -390,7 +390,11 @@
     },
     "/auth/logout": {
       "get": {
-        "description": "",
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "SimpleToken: Logout",
+        "description": "Delete token key.",
         "responses": {
           "200": {
             "description": "OK"
@@ -639,11 +643,19 @@
             },
             "default": {
               "type": "number",
-              "example": 1708606627671
+              "example": 1709166349819
             }
           }
         }
       }
     }
-  }
+  },
+  "security": [
+    {
+      "Token": []
+    },
+    {
+      "Bearer": []
+    }
+  ]
 }
